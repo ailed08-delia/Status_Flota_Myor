@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+//import { RouterLink, RouterView } from 'vue-router'
 </script>
 <template>
   <div style="width: 100%">
-    <br>
+    <br />
     <div class="container">
       <div class="title-container" style="text-align: center">
-        <h2 style="font-size: 2.5rem; font-weight: bold">STATUS  DIARIO DE FLOTA NACIONAL</h2>
+        <h2 style="font-size: 2.5rem; font-weight: bold">STATUS DIARIO DE FLOTA NACIONAL</h2>
       </div>
-      <br/>
-      <div class="col-8"> 
-        <div style="width: 100%;">
+      <br />
+      <div class="col-12">
+        <div style="width: 100%">
           <form class="d-flex align-items-center justify-content-center">
             <label for="placa" class="me-4 fw-bold">PLACA:</label>
             <input
@@ -31,21 +31,28 @@ import { RouterLink, RouterView } from 'vue-router'
         <div class="col-12 col-sm-4 d-flex justify-content-center mb-2">
           <router-link
             to="/InformacionGeneral"
-            tag="button"
             class="btn btn-primary w-100"
-            style="font-weight: bold; font-size: 1.2rem;height: 100%"
-          >INFORMACIÓN GENERAL 
+            style="font-weight: bold; font-size: 1.2rem; height: 100%"
+            >INFORMACIÓN GENERAL
           </router-link>
         </div>
         <div class="col-12 col-sm-4 d-flex justify-content-center mb-2">
-          <router-link to="/RelevosTodos" class="btn btn-warning w-100 d-flex align-items-center justify-content-center" style="font-weight: bold; font-size: 1.2rem; height: 100%">
-    RELEVOS
-  </router-link>  
+          <router-link
+            to="/RelevosTodos"
+            class="btn btn-warning w-100 d-flex align-items-center justify-content-center"
+            style="font-weight: bold; font-size: 1.2rem; height: 100%"
+          >
+            RELEVOS
+          </router-link>
         </div>
         <div class="col-12 col-sm-4 d-flex justify-content-center mb-2">
-          <router-link to="/ReportesDiario" class="btn btn-success w-100 d-flex align-items-center justify-content-center" style="font-weight: bold; font-size: 1.2rem;">
-    REPORTES
-  </router-link>
+          <router-link
+            to="/ReportesDiario"
+            class="btn btn-success w-100 d-flex align-items-center justify-content-center"
+            style="font-weight: bold; font-size: 1.2rem"
+          >
+            REPORTES
+          </router-link>
         </div>
       </div>
     </div>
@@ -55,7 +62,8 @@ import { RouterLink, RouterView } from 'vue-router'
 
 
 <style>
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;

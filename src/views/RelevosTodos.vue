@@ -1,61 +1,86 @@
 <template>
-    <div class="container my-2">
-       <div class="row justify-content-center">
-           <div class="col-12 col-lg-12">
-               <div class="card">
-                   <h5 class="card-header" style="font-weight: bold;">AEK-829</h5>
-                   <div class="card-body">
-                       <div class="text-center mb-4">
-                           <h3 style="font-weight: bold;">RELEVOS</h3>
-                       </div>
-                       <div class="d-flex align-items-start">
-    <div class="d-flex justify-content-center">
-      <div class="nav flex-column nav-pills me-20" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <button v-for="(relevo, index) in relevos"
-          :key="index"
-          :class="['nav-link', { 'active': index === 0 }]"
-          :id="`${relevo.id}-tab`"
-          data-bs-toggle="pill"
-          :data-bs-target="`#${relevo.id}`"
-          type="button"
-          role="tab"
-          :aria-controls="`${relevo.id}`"
-          :aria-selected="index === 0"
-          class="custom-button">
-          {{ relevo.label }}
-        </button>
-      </div>
+  <div class="container my-2">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-12">
+        <div class="card">
+          <h5 class="card-header" style="font-weight: bold">AEK-829</h5>
+          <div class="card-body">
+            <div class="container">
+              <h3 class="text-center" style="font-weight: bold">RELEVOS</h3>
+              <hr>
+              <div class="d-flex align-items-start">
+                <div
+                  class="nav flex-column nav-pills me-20"
+                  id="v-pills-tab"
+                  role="tablist"
+                  aria-orientation="vertical"
+                >
+                  <button
+                    v-for="(relevo, index) in relevos"
+                    :key="index"
+                    :class="['nav-link', { active: index === 0 }]"
+                    :id="`${relevo.id}-tab`"
+                    data-bs-toggle="pill"
+                    :data-bs-target="`#${relevo.id}`"
+                    type="button"
+                    role="tab"
+                    :aria-controls="`${relevo.id}`"
+                    :aria-selected="index === 0"
+                    class="custom-button mb-2"
+                  >
+                    {{ relevo.label }}
+                  </button>
+                </div>
 
-      <div class="tab-content w-75" id="v-pills-tabContent">
-        <div v-for="(relevo, index) in relevos"
-          :key="index"
-          :id="relevo.id"
-          class="tab-pane fade"
-          :class="['tab-pane', { 'show active': index === 0 }]"
-          role="tabpanel"
-          :aria-labelledby="`${relevo.id}-tab`">
-          <form class="text-center">
-            <h3 class="mb-4">{{ relevo.label }}</h3>
-            <div v-for="(input, inputIndex) in relevo.inputs" :key="inputIndex" class="mb-3">
-              <label :for="input.id" class="form-label">{{ input.label }}</label>
-              <input v-if="input.type === 'text' || input.type === 'time'" :type="input.type" class="form-control mx-auto" :id="input.id" style="width: 50%;">
-              <textarea v-else-if="input.type === 'textarea'" class="form-control mx-auto" :id="input.id" rows="3" style="width: 50%;"></textarea>
+                <div class="container tab-content" id="v-pills-tabContent">
+                  <div
+                    v-for="(relevo, index) in relevos"
+                    :key="index"
+                    :id="relevo.id"
+                    class="tab-pane fade w-100"
+                    :class="['tab-pane', { 'show active': index === 0 }]"
+                    role="tabpanel"
+                    :aria-labelledby="`${relevo.id}-tab`"
+                  >
+                    <form>
+                      <h3 class="mb-4 text-center" style="font-weight: bold">{{ relevo.label }}</h3>
+                      <hr>
+                      <div
+                        v-for="(input, inputIndex) in relevo.inputs"
+                        :key="inputIndex"
+                        class="mb-3"
+                      >
+                        <label :for="input.id" class="form-label">{{ input.label }}</label>
+                        <input
+                          v-if="input.type === 'text' || input.type === 'time'"
+                          :type="input.type"
+                          class="form-control w-100"
+                          :id="input.id"
+                          style="width: 50%"
+                        />
+                        <textarea
+                          v-else-if="input.type === 'textarea'"
+                          class="form-control w-100"
+                          :id="input.id"
+                          rows="3"
+                          style="width: 50%"
+                        ></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
 </template>
      
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   data() {
@@ -161,9 +186,9 @@ export default defineComponent({
           ]
         }
       ]
-    };
+    }
   }
-});
+})
 </script>     
 <style scoped>
 .custom-button {
@@ -181,5 +206,4 @@ export default defineComponent({
 .custom-button.active {
   background-color: #0056b3;
 }
-     
 </style>
